@@ -418,29 +418,38 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
           <div class="plinks"><a href="https://github.com/loglux/obsidian-blueproof">GitHub</a></div></div>
       </article>
 
-      <article id="markulator" class="card" data-s="priv">
+      <article id="markulator" class="card wide" data-s="priv">
         <div class="card-top"><div><h3>Markulator</h3><p class="what">A Markdown and LaTeX editor that looks and works like Microsoft Word.</p></div>
           <div class="chips"><span class="chip c-dev">In development</span><span class="chip c-priv">Private</span></div></div>
-        <ul>
-          <li>Its own .docx writer. LaTeX becomes native Word equations (OMML), translated straight from KaTeX's parse tree. I chose this over Pandoc after measuring both.</li>
-          <li>Page layout drawn over a single ProseMirror document, with a Markdown round trip that keeps formulas byte for byte.</li>
-          <li>Keystrokes take about 2–3 ms on a 2,000-paragraph document.</li>
-        </ul>
-        <div class="metrics"><div class="m"><b>~10.5k</b><span>lines</span></div><div class="m"><b>~440</b><span>tests</span></div></div>
-        <div class="foot"><div class="stack">Tauri 2 · Rust · TypeScript · Tiptap · KaTeX · Playwright</div>
-          <div class="plinks"><span class="onreq">Code walkthrough on request</span></div></div>
+        <div class="wide-body">
+          <button type="button" class="shot" data-full="img/markulator.webp" aria-label="Enlarge screenshot: Markulator editing a document with formulas"><img src="img/markulator.webp" alt="Markulator: a Word-like ribbon above a document with inline and display formulas typeset as you write" loading="lazy"></button>
+          <div style="display:flex;flex-direction:column;gap:12px;min-width:0">
+            <ul>
+              <li>Its own .docx writer. LaTeX becomes native Word equations (OMML), translated straight from KaTeX's parse tree. I chose this over Pandoc after measuring both.</li>
+              <li>Page layout drawn over a single ProseMirror document, with a Markdown round trip that keeps formulas byte for byte.</li>
+              <li>Keystrokes take about 2–3 ms on a 2,000-paragraph document.</li>
+            </ul>
+            <div class="metrics"><div class="m"><b>~10.5k</b><span>lines</span></div><div class="m"><b>~440</b><span>tests</span></div></div>
+            <div class="foot"><div class="stack">Tauri 2 · Rust · TypeScript · Tiptap · KaTeX · Playwright</div>
+              <div class="plinks"><span class="onreq">Code walkthrough on request</span></div></div>
+          </div>
+        </div>
       </article>
 
-      <article id="fix-math-and-auto-math" class="card" data-s="pub live">
+      <article id="fix-math-and-auto-math" class="card wide" data-s="pub live">
         <div class="card-top"><div><h3>Fix Math &amp; Auto Math</h3><p class="what">Obsidian plugins for LaTeX pasted from AI assistants, and for typing maths faster.</p></div>
           <div class="chips"><span class="chip c-live">Obsidian directory</span><span class="chip c-pub">Open source</span></div></div>
-        <ul>
-          <li>Fix Math turns <span class="mono">\[…\]</span> and <span class="mono">\(…\)</span> from ChatGPT into Obsidian's <span class="mono">$…$</span> form, and leaves code untouched.</li>
-          <li>Auto Math expands snippets from user rule files that reload live. It includes a dependency-free LaTeX tokenizer and a LaTeX-to-Maxima translator.</li>
-        </ul>
-        <div class="metrics"><div class="m"><b>8,800+</b><span>Fix Math downloads</span></div><div class="m"><b>3,700+</b><span>Auto Math downloads</span></div><div class="m"><b>36★</b><span>stars</span></div></div>
-        <div class="foot"><div class="stack">TypeScript · Obsidian API</div>
-          <div class="plinks"><a href="https://github.com/loglux/fix-math-for-obsidian">Fix Math</a><a href="https://github.com/loglux/auto-math-for-obsidian">Auto Math</a></div></div>
+        <div class="wide-body">
+          <ul>
+            <li>Fix Math turns <span class="mono">\[…\]</span> and <span class="mono">\(…\)</span> from ChatGPT into Obsidian's <span class="mono">$…$</span> form, and leaves code untouched.</li>
+            <li>Auto Math expands snippets from user rule files that reload live. It includes a dependency-free LaTeX tokenizer and a LaTeX-to-Maxima translator.</li>
+          </ul>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div class="metrics" style="margin-top:0;border-top:0;padding-top:0"><div class="m"><b>8,800+</b><span>Fix Math downloads</span></div><div class="m"><b>3,700+</b><span>Auto Math downloads</span></div><div class="m"><b>36★</b><span>stars</span></div></div>
+            <div class="stack">TypeScript · Obsidian API</div>
+            <div class="plinks"><a href="https://github.com/loglux/fix-math-for-obsidian">Fix Math</a><a href="https://github.com/loglux/auto-math-for-obsidian">Auto Math</a></div>
+          </div>
+        </div>
       </article>
     </div>
   </div>
