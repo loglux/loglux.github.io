@@ -108,6 +108,7 @@ section.area{padding-block:56px 8px}
 /* project card */
 .card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px 22px;display:flex;flex-direction:column;gap:12px;min-width:0}
 .card.wide{grid-column:1/-1}
+.card[id],section.area{scroll-margin-top:64px}
 .card-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap}
 .card h3{font-size:22px;font-weight:700;line-height:1.15}
 .card .what{margin:2px 0 0;color:var(--muted);font-size:15px}
@@ -269,7 +270,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     </div>
     <div class="grid">
 
-      <article class="card" data-s="live priv">
+      <article id="fuelscope" class="card" data-s="live priv">
         <div class="card-top"><div><h3>FuelScope</h3><p class="what">Finds cheap fuel across the UK, using the government's live fuel price feed.</p></div>
           <div class="chips"><span class="chip c-live">Live · Web + Android</span><span class="chip c-priv">Private</span></div></div>
         <button type="button" class="shot mid" data-full="img/fuelscope.webp" aria-label="Enlarge screenshot: FuelScope Android app: station list with prices and filters"><img src="img/fuelscope.webp" alt="FuelScope Android app: station list with prices and filters" loading="lazy"></button>
@@ -284,7 +285,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
           <div class="plinks"><a href="https://fuelscope.uk">fuelscope.uk</a><a href="https://play.google.com/store/apps/details?id=uk.fuelscope.app">Google Play</a></div></div>
       </article>
 
-      <article class="card" data-s="live priv">
+      <article id="taxscope-uk" class="card" data-s="live priv">
         <div class="card-top"><div><h3>TaxScope UK</h3><p class="what">UK tax calculators for PAYE, NI, limited companies, IR35, dividends and more.</p></div>
           <div class="chips"><span class="chip c-live">Live · Web + Android</span><span class="chip c-priv">Private</span></div></div>
         <button type="button" class="shot" data-full="img/taxscope.webp" aria-label="Enlarge screenshot: taxscope.uk home page with the calculator list"><img src="img/taxscope.webp" alt="taxscope.uk home page with the calculator list" loading="lazy"></button>
@@ -299,7 +300,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
           <div class="plinks"><a href="https://taxscope.uk">taxscope.uk</a><a href="https://play.google.com/store/apps/details?id=uk.taxscope.app">Google Play</a></div></div>
       </article>
 
-      <article class="card wide" data-s="priv">
+      <article id="microaccount" class="card wide" data-s="priv">
         <div class="card-top"><div><h3>MicroAccount</h3><p class="what">Bookkeeping and tax for single-director UK limited companies.</p></div>
           <div class="chips"><span class="chip c-priv">Private</span></div></div>
         <div class="wide-body">
@@ -340,7 +341,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     </div>
 
     <div class="grid">
-      <article class="card" data-s="pub">
+      <article id="authmcp-gateway" class="card" data-s="pub">
         <div class="card-top"><div><h3>AuthMCP Gateway</h3><p class="what">An authenticating proxy that merges several MCP servers into one endpoint.</p></div>
           <div class="chips"><span class="chip c-pub">Open source · PyPI</span></div></div>
         <button type="button" class="shot" data-full="img/authmcp.webp" aria-label="Enlarge screenshot: AuthMCP Gateway admin dashboard with server health and live MCP activity"><img src="img/authmcp.webp" alt="AuthMCP Gateway admin dashboard with server health and live MCP activity" loading="lazy"></button>
@@ -355,7 +356,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
           <div class="plinks"><a href="https://github.com/loglux/authmcp-gateway">GitHub</a><a href="https://pypi.org/project/authmcp-gateway/">PyPI</a></div></div>
       </article>
 
-      <article class="card" data-s="pub">
+      <article id="rag-knowledge-base-platform" class="card" data-s="pub">
         <div class="card-top"><div><h3>RAG Knowledge Base Platform</h3><p class="what">Retrieval and grounded Q&amp;A over document collections, with citations.</p></div>
           <div class="chips"><span class="chip c-pub">Open source</span></div></div>
         <button type="button" class="shot" data-full="img/rag.webp" aria-label="Enlarge screenshot: Chat over four books with numbered source citations"><img src="img/rag.webp" alt="Chat over four books with numbered source citations" loading="lazy"></button>
@@ -387,7 +388,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <p>A design for spelling, grammar and style checking that I built first in a terminal editor, then carried into an Obsidian plugin and a Word-like desktop app. Every version follows the same rule: typing never waits for a checker.</p>
     </div>
     <div class="grid">
-      <article class="card" data-s="pub">
+      <article id="blueedit" class="card" data-s="pub">
         <div class="card-top"><div><h3>BlueEdit</h3><p class="what">A fast DOS-style console editor for writing, mathematics and code, on Windows and Linux.</p></div>
           <div class="chips"><span class="chip c-pub">Open source</span></div></div>
         <button type="button" class="shot" data-full="img/blueedit.webp" aria-label="Enlarge screenshot: BlueEdit showing LaTeX formulas typeset as Sixel pictures in the terminal"><img src="img/blueedit.webp" alt="BlueEdit showing LaTeX formulas typeset as Sixel pictures in the terminal" loading="lazy"></button>
@@ -402,7 +403,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
           <div class="plinks"><a href="https://github.com/loglux/blueedit">GitHub</a></div></div>
       </article>
 
-      <article class="card" data-s="pub live">
+      <article id="blueproof" class="card" data-s="pub live">
         <div class="card-top"><div><h3>BlueProof</h3><p class="what">LLM spelling and grammar checking for Obsidian that leaves LaTeX formulas alone.</p></div>
           <div class="chips"><span class="chip c-live">Obsidian directory</span><span class="chip c-pub">Open source</span></div></div>
         <button type="button" class="shot contain" data-full="img/blueproof.webp" aria-label="Enlarge screenshot: BlueProof underlining errors in an Obsidian note"><img src="img/blueproof.webp" alt="BlueProof underlining errors in an Obsidian note" loading="lazy"></button>
@@ -417,7 +418,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
           <div class="plinks"><a href="https://github.com/loglux/obsidian-blueproof">GitHub</a></div></div>
       </article>
 
-      <article class="card" data-s="priv">
+      <article id="markulator" class="card" data-s="priv">
         <div class="card-top"><div><h3>Markulator</h3><p class="what">A Markdown and LaTeX editor that looks and works like Microsoft Word.</p></div>
           <div class="chips"><span class="chip c-dev">In development</span><span class="chip c-priv">Private</span></div></div>
         <ul>
@@ -430,7 +431,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
           <div class="plinks"><span class="onreq">Code walkthrough on request</span></div></div>
       </article>
 
-      <article class="card" data-s="pub live">
+      <article id="fix-math-and-auto-math" class="card" data-s="pub live">
         <div class="card-top"><div><h3>Fix Math &amp; Auto Math</h3><p class="what">Obsidian plugins for LaTeX pasted from AI assistants, and for typing maths faster.</p></div>
           <div class="chips"><span class="chip c-live">Obsidian directory</span><span class="chip c-pub">Open source</span></div></div>
         <ul>
@@ -461,7 +462,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     </div>
 
     <div class="grid">
-      <article class="card wide" data-s="priv">
+      <article id="buildpipeline" class="card wide" data-s="priv">
         <div class="card-top"><div><h3>BuildPipeline</h3><p class="what">A WinPE pipeline that flashes BIOS, sets BIOS security and images HP and Dell laptops.</p></div>
           <div class="chips"><span class="chip c-live">In production</span><span class="chip c-priv">Private</span></div></div>
         <div class="wide-body">
@@ -478,7 +479,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         </div>
       </article>
 
-      <article class="card" data-s="priv">
+      <article id="usbimageclone" class="card" data-s="priv">
         <div class="card-top"><div><h3>USBImageClone</h3><p class="what">Captures a bootable USB drive and writes it to many drives at once, in the spirit of Rufus or Etcher.</p></div>
           <div class="chips"><span class="chip c-priv">Private</span></div></div>
         <button type="button" class="shot" data-full="img/usbimageclone.webp" aria-label="Enlarge screenshot: USBImageClone provisioning several USB drives from an ISO"><img src="img/usbimageclone.webp" alt="USBImageClone provisioning several USB drives from an ISO" loading="lazy"></button>
@@ -492,7 +493,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
           <div class="plinks"><span class="onreq">Code walkthrough on request</span></div></div>
       </article>
 
-      <article class="card" data-s="priv">
+      <article id="winpe-builder" class="card" data-s="priv">
         <div class="card-top"><div><h3>WinPE-Builder</h3><p class="what">Builds custom WinPE images and installation images from JSON recipes.</p></div>
           <div class="chips"><span class="chip c-priv">Private</span></div></div>
         <button type="button" class="shot" data-full="img/winpe.webp" aria-label="Enlarge screenshot: WinPE Toolbox: choosing components for a new image"><img src="img/winpe.webp" alt="WinPE Toolbox: choosing components for a new image" loading="lazy"></button>
@@ -506,7 +507,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
           <div class="plinks"><span class="onreq">Code walkthrough on request</span></div></div>
       </article>
 
-      <article class="card wide" data-s="priv">
+      <article id="multiusbsync" class="card wide" data-s="priv">
         <div class="card-top"><div><h3>MultiUSBSync</h3><p class="what">Pushes a folder onto many USB drives at once. A general-purpose tool that works with any content.</p></div>
           <div class="chips"><span class="chip c-priv">Private</span></div></div>
         <div class="wide-body">
@@ -525,7 +526,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         </div>
       </article>
 
-      <article class="card wide" data-s="pub">
+      <article id="ipxe-station" class="card wide" data-s="pub">
         <div class="card-top"><div><h3>iPXE Station</h3><p class="what">A self-hosted PXE/iPXE boot server with a web interface.</p></div>
           <div class="chips"><span class="chip c-pub">Open source</span></div></div>
         <div class="wide-body">
@@ -554,7 +555,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <p>Systems that each needed knowledge of a domain beyond web development: Asterisk telephony, discourse analysis, audio processing, SSH and cryptography, observability.</p>
     </div>
     <div class="grid">
-      <article class="card" data-s="priv">
+      <article id="digitalpbx" class="card" data-s="priv">
         <div class="card-top"><div><h3>DigitalPBX</h3><p class="what">A modern alternative to FreePBX for managing Asterisk, with an AI voice agent.</p></div>
           <div class="chips"><span class="chip c-dev">In development</span><span class="chip c-priv">Private</span></div></div>
         <ul>
@@ -568,7 +569,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
           <div class="plinks"><span class="onreq">Code walkthrough on request</span></div></div>
       </article>
 
-      <article class="card" data-s="priv">
+      <article id="cda-toolkit" class="card" data-s="priv">
         <div class="card-top"><div><h3>CDA Toolkit</h3><p class="what">LLM pipelines for Critical Discourse Analysis of news text, used in academic research.</p></div>
           <div class="chips"><span class="chip c-priv">Private</span></div></div>
         <ul>
@@ -581,7 +582,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
           <div class="plinks"><span class="onreq">Code walkthrough on request</span></div></div>
       </article>
 
-      <article class="card" data-s="priv">
+      <article id="flexaudiohub" class="card" data-s="priv">
         <div class="card-top"><div><h3>FlexAudioHub</h3><p class="what">A transcription platform, and a native Android app that turns therapy sessions into clinical notes.</p></div>
           <div class="chips"><span class="chip c-priv">Private</span></div></div>
         <ul>
@@ -594,7 +595,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
           <div class="plinks"><span class="onreq">Code walkthrough on request</span></div></div>
       </article>
 
-      <article class="card" data-s="priv">
+      <article id="termhub" class="card" data-s="priv">
         <div class="card-top"><div><h3>termhub</h3><p class="what">An SSH workspace for Windows, with ClusterSSH-style typing into many hosts at once.</p></div>
           <div class="chips"><span class="chip c-priv">Private</span></div></div>
         <ul>
