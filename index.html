@@ -506,6 +506,25 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
           <div class="plinks"><span class="onreq">Code walkthrough on request</span></div></div>
       </article>
 
+      <article class="card wide" data-s="priv">
+        <div class="card-top"><div><h3>MultiUSBSync</h3><p class="what">Pushes a folder onto many USB drives at once. A general-purpose tool that works with any content.</p></div>
+          <div class="chips"><span class="chip c-priv">Private</span></div></div>
+        <div class="wide-body">
+          <button type="button" class="shot" data-full="img/multiusbsync.webp" aria-label="Enlarge screenshot: MultiUSBSync copying to three drives"><img src="img/multiusbsync.webp" alt="MultiUSBSync copying a folder to three USB drives, with speed and time left" loading="lazy"></button>
+          <div style="display:flex;flex-direction:column;gap:12px;min-width:0">
+            <ul>
+              <li>Reads each source file once and writes it to every drive at the same time.</li>
+              <li>Each copy goes to a temporary part file and is renamed only when complete. A pulled drive leaves no half-written files and doesn't stop the others.</li>
+              <li>Copies only what changed, by hash. Large files bypass the Windows file cache, so the PC stays responsive during multi-gigabyte copies.</li>
+              <li>Notices when a drive slows down mid-copy, refuses to scan a whole 2 TB disk by accident, and replaces read-only files while keeping their attributes.</li>
+            </ul>
+            <div class="metrics"><div class="m"><b>~4.8k</b><span>lines</span></div><div class="m"><b>3.1.2</b><span>version</span></div><div class="m"><b>2</b><span>editions</span></div></div>
+            <div class="foot"><div class="stack">C# · .NET 4.8 · PowerShell · WinForms</div>
+              <div class="plinks"><span class="onreq">Code walkthrough on request</span></div></div>
+          </div>
+        </div>
+      </article>
+
       <article class="card wide" data-s="pub">
         <div class="card-top"><div><h3>iPXE Station</h3><p class="what">A self-hosted PXE/iPXE boot server with a web interface.</p></div>
           <div class="chips"><span class="chip c-pub">Open source</span></div></div>
