@@ -1,0 +1,681 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vladislav Sorokin</title>
+<meta name="description" content="Vladislav Sorokin, Python developer in Belfast: live products on Google Play, a self-hosted AI/MCP stack, writing tools and device-provisioning pipelines, described from the code.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://loglux.github.io/">
+<meta property="og:title" content="Vladislav Sorokin · Portfolio">
+<meta property="og:description" content="Vladislav Sorokin, Python developer in Belfast: live products on Google Play, a self-hosted AI/MCP stack, writing tools and device-provisioning pipelines, described from the code.">
+<meta property="og:image" content="https://loglux.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230F1C2A'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='15' font-weight='700' text-anchor='middle' fill='%2386A2FF'%3EVS%3C/text%3E%3C/svg%3E">
+<style>
+:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;font:14px system-ui,sans-serif}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700;800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: an engineering dossier. One narrow reading column, project "spec sheets" in a two-up grid,
+   systems drawn as flows. Status (live / public / private) is encoded on every project. */
+:root{
+  --bg:#F3F5F8; --surface:#FFFFFF; --ink:#0F1C2A; --muted:#566576; --line:#D8DEE6; --soft:#E9EDF2;
+  --accent:#2346C8; --accent-soft:#E3E9FB;
+  --live:#1C7A4B; --live-soft:#DDF1E6; --pub:#2346C8; --pub-soft:#E3E9FB; --priv:#8F5500; --priv-soft:#F7EBD8;
+  --display:"Schibsted Grotesk","Segoe UI",system-ui,sans-serif;
+  --body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"Cascadia Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0C131B; --surface:#131C26; --ink:#E5EBF1; --muted:#93A1B1; --line:#253140; --soft:#1A2531;
+  --accent:#86A2FF; --accent-soft:#1C2850;
+  --live:#55C792; --live-soft:#123525; --pub:#86A2FF; --pub-soft:#1C2850; --priv:#E5A64A; --priv-soft:#3A2A12;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0C131B; --surface:#131C26; --ink:#E5EBF1; --muted:#93A1B1; --line:#253140; --soft:#1A2531;
+  --accent:#86A2FF; --accent-soft:#1C2850;
+  --live:#55C792; --live-soft:#123525; --pub:#86A2FF; --pub-soft:#1C2850; --priv:#E5A64A; --priv-soft:#3A2A12;
+  color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 var(--body);margin:0}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;letter-spacing:-.01em}
+.mono{font-family:var(--mono)}
+.eyebrow{font:500 12px/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+/* hero */
+header.hero{padding-block:56px 36px;border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:40px;align-items:end}
+.hero h1{font-size:clamp(40px,6.4vw,72px);font-weight:800;line-height:1;letter-spacing:-.03em}
+.hero .role{font:600 clamp(18px,2.2vw,22px)/1.35 var(--display);margin-top:18px;max-width:30ch}
+.hero p.lede{color:var(--muted);max-width:60ch;margin:16px 0 0}
+.links{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:20px;font:500 14px var(--mono)}
+.prompt{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 18px;font:13px/1.75 var(--mono);color:var(--muted);min-width:0;overflow-x:auto}
+.prompt b{color:var(--ink);font-weight:500}
+.prompt .ok{color:var(--live)}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:0;margin-top:32px;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+.stat{padding:14px 16px;border-left:1px solid var(--line);min-width:0}
+.stat:first-child{border-left:0}
+.stat .n{font:700 26px/1.1 var(--display);font-variant-numeric:tabular-nums}
+.stat .l{font-size:13px;color:var(--muted);line-height:1.35;margin-top:4px}
+
+/* private note */
+.note{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;align-items:start;margin-top:28px;padding:16px 18px;border:1px dashed var(--priv);border-radius:10px;background:var(--priv-soft)}
+.note p{margin:0;max-width:78ch}
+.note .key{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+
+/* chips */
+.chip{display:inline-flex;align-items:center;gap:6px;font:500 11.5px/1 var(--mono);letter-spacing:.03em;padding:5px 8px;border-radius:999px;white-space:nowrap}
+.chip::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.c-live{color:var(--live);background:var(--live-soft)}
+.c-pub{color:var(--pub);background:var(--pub-soft)}
+.c-priv{color:var(--priv);background:var(--priv-soft)}
+.c-dev{color:var(--muted);background:var(--soft)}
+
+/* filter */
+.filter{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.filter .wrap{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding-block:10px}
+.filter nav{display:flex;gap:4px 16px;flex-wrap:wrap;font:500 13px var(--mono);margin-right:auto}
+.filter nav a{color:var(--muted);text-decoration:none}
+.filter nav a:hover{color:var(--ink)}
+.seg{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface)}
+.seg button{font:500 12.5px var(--mono);color:var(--muted);background:none;border:0;padding:7px 11px;cursor:pointer;border-left:1px solid var(--line)}
+.seg button:first-child{border-left:0}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+
+/* sections */
+section.area{padding-block:56px 8px}
+.area-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:32px;align-items:end;margin-bottom:24px}
+.area-head h2{font-size:clamp(28px,3.6vw,40px);font-weight:800;line-height:1.05;margin-top:6px}
+.area-head p{margin:0;color:var(--muted);max-width:62ch}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+
+/* project card */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px 22px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.card.wide{grid-column:1/-1}
+.card-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap}
+.card h3{font-size:22px;font-weight:700;line-height:1.15}
+.card .what{margin:2px 0 0;color:var(--muted);font-size:15px}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.card ul{margin:0;padding-left:18px;display:grid;gap:6px;font-size:15px}
+.card ul li::marker{color:var(--accent)}
+.metrics{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--line);padding-top:12px;margin-top:auto}
+.m{padding-right:18px;margin-right:18px;border-right:1px solid var(--line);min-width:0}
+.m:last-child{border-right:0;margin-right:0;padding-right:0}
+.m b{display:block;font:700 17px/1.1 var(--display);font-variant-numeric:tabular-nums}
+.m span{font-size:12px;color:var(--muted)}
+.foot{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
+.stack{font:12.5px/1.5 var(--mono);color:var(--muted)}
+.plinks{display:flex;gap:14px;flex-wrap:wrap;font:500 13px var(--mono)}
+.plinks .onreq{color:var(--priv)}
+.wide-body{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:24px}
+
+/* flows */
+.flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-block:4px 18px;counter-reset:step;overflow-x:auto}
+.step{position:relative;padding:14px 16px 14px 16px;border:1px solid var(--line);border-right:0;background:var(--surface);min-width:0}
+.step:first-child{border-radius:10px 0 0 10px}
+.step:last-child{border-right:1px solid var(--line);border-radius:0 10px 10px 0}
+.step::before{counter-increment:step;content:"STEP " counter(step);font:500 11px var(--mono);letter-spacing:.08em;color:var(--accent)}
+.step h4{font:700 16px/1.2 var(--display);margin:6px 0 4px}
+.step p{margin:0;font-size:13.5px;color:var(--muted);line-height:1.45}
+.step .tools{font:12px var(--mono);color:var(--ink);margin-top:8px}
+
+.hub{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1.1fr) auto minmax(0,1fr);gap:10px;align-items:center;margin-bottom:18px}
+.node{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:13.5px;min-width:0}
+.node b{display:block;font:700 15px var(--display)}
+.node.core{border-color:var(--accent);background:var(--accent-soft)}
+.node small{color:var(--muted);font-family:var(--mono);font-size:12px}
+.arrow{font:16px var(--mono);color:var(--muted);text-align:center}
+.backends{display:grid;gap:8px}
+
+/* lists */
+.compact{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border:1px solid var(--line);border-radius:12px;background:var(--surface);overflow:hidden}
+.compact div{padding:14px 16px;border-top:1px solid var(--line);border-left:1px solid var(--line);min-width:0}
+.compact b{font:700 15px var(--display)}
+.compact p{margin:4px 0 0;font-size:13.5px;color:var(--muted);line-height:1.45}
+
+.principles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.principle{border-top:2px solid var(--ink);padding-top:12px}
+.principle h3{font-size:18px}
+.principle p{margin:6px 0 0;color:var(--muted);font-size:15px}
+
+table.skills{width:100%;border-collapse:collapse;font-size:14.5px}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+table.skills th,table.skills td{text-align:left;padding:11px 16px;border-top:1px solid var(--line);vertical-align:top}
+table.skills tr:first-child th,table.skills tr:first-child td{border-top:0}
+table.skills th{font:500 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);white-space:nowrap;width:1%}
+
+footer{margin-top:64px;border-top:1px solid var(--line);padding-block:28px 48px;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+[data-hide="1"]{display:none!important}
+
+/* screenshots */
+.shot{display:block;padding:0;margin:0;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--soft);aspect-ratio:16/9;width:100%;max-width:100%;cursor:zoom-in}
+.shot img{display:block;width:100%;height:100%;object-fit:cover;object-position:top center}
+.shot.contain img{object-fit:contain}
+.shot.mid img{object-position:center}
+.wide-body .shot{aspect-ratio:16/10}
+:root.noshots .shot{display:none}
+.lb{position:fixed;inset:0;z-index:30;background:rgb(6 10 15 / .86);display:grid;place-items:center;cursor:zoom-out;
+  padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+.lb img{max-width:100%;max-height:100%;border-radius:8px;box-shadow:0 10px 40px rgb(0 0 0 / .5)}
+.lb button{position:absolute;top:max(12px,env(safe-area-inset-top,0px));right:max(12px,env(safe-area-inset-right,0px));font:500 13px var(--mono);color:#fff;background:rgb(255 255 255 / .12);border:1px solid rgb(255 255 255 / .3);border-radius:8px;padding:7px 12px;cursor:pointer}
+
+@media (max-width:900px){
+  .hero-grid,.area-head,.wide-body{grid-template-columns:minmax(0,1fr)}
+  .stats{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .stat:nth-child(4){border-left:0}
+  .stat:nth-child(n+4){border-top:1px solid var(--line)}
+  .compact{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .flow{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .step{border-right:1px solid var(--line);border-radius:0!important;margin:-1px 0 0 -1px}
+  .hub{grid-template-columns:minmax(0,1fr)}
+  .arrow{transform:rotate(90deg)}
+}
+@media (max-width:620px){
+  .grid,.principles,.compact,.flow{grid-template-columns:minmax(0,1fr)}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stat{border-left:1px solid var(--line)}
+  .stat:nth-child(odd){border-left:0}
+  .stat:nth-child(n+3){border-top:1px solid var(--line)}
+  .stat:nth-child(4){border-left:1px solid var(--line)}
+  .filter nav{display:none}
+}
+@media (prefers-reduced-motion:no-preference){.card{transition:border-color .15s}.card:hover{border-color:var(--muted)}}
+</style>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">Belfast, Northern Ireland · Python developer · Microsoft Certified AI-102</div>
+        <h1 style="margin-top:14px">Vladislav Sorokin</h1>
+        <p class="role">I build complete systems and keep them running: live products, AI infrastructure, desktop tools and device provisioning.</p>
+        <p class="lede">Most of my work is the whole loop: data ingestion, the engine, the API, the web and mobile clients, the deploy, and the tests that keep it correct. Python is my main language. I also ship in TypeScript, C#/.NET, PowerShell and Kotlin when the job calls for it.</p>
+        <div class="links">
+          <a href="https://github.com/loglux">github.com/loglux</a>
+          <a href="https://fuelscope.uk">fuelscope.uk</a>
+          <a href="https://taxscope.uk">taxscope.uk</a>
+          <a href="https://pypi.org/project/authmcp-gateway/">PyPI</a>
+        </div>
+      </div>
+      <div class="prompt" aria-label="Summary in terminal form">
+        <div>$ <b>status --portfolio</b></div>
+        <div><span class="ok">●</span> 2 apps live on Google Play</div>
+        <div><span class="ok">●</span> 2 web products in production</div>
+        <div><span class="ok">●</span> 3 plugins in the Obsidian directory</div>
+        <div><span class="ok">●</span> 1 package on PyPI</div>
+        <div><span class="ok">●</span> 101 repositories, 55 private</div>
+      </div>
+    </div>
+
+    <div class="stats" role="list">
+      <div class="stat" role="listitem"><div class="n">5,800+</div><div class="l">contributions in the last 12 months</div></div>
+      <div class="stat" role="listitem"><div class="n">12,600+</div><div class="l">Obsidian plugin downloads</div></div>
+      <div class="stat" role="listitem"><div class="n">~370k</div><div class="l">lines of non-test code in the main projects</div></div>
+      <div class="stat" role="listitem"><div class="n">3,500+</div><div class="l">automated tests across them</div></div>
+      <div class="stat" role="listitem"><div class="n">2</div><div class="l">Android apps on Google Play</div></div>
+      <div class="stat" role="listitem"><div class="n">1</div><div class="l">merged upstream fix in an Obsidian plugin</div></div>
+    </div>
+
+    <div class="note">
+      <span class="chip c-priv">Private</span>
+      <div>
+        <p><strong>Much of my strongest work is in private repositories:</strong> products that earn money and workplace tooling. They are described here as faithfully as the public ones. I wrote each description from a review of the source, not from its README. I can walk through any private code in an interview.</p>
+        <div class="key"><span class="chip c-live">Live</span><span class="chip c-pub">Open source</span><span class="chip c-priv">Private</span><span class="chip c-dev">In development</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="filter">
+  <div class="wrap">
+    <nav aria-label="Sections">
+      <a href="#products">Products</a><a href="#ai">AI &amp; MCP</a><a href="#writing">Writing tools</a><a href="#provisioning">Provisioning</a><a href="#platforms">Platforms</a><a href="#practice">How I work</a>
+    </nav>
+    <div class="seg" role="group" aria-label="Filter projects">
+      <button type="button" id="f-all" data-f="all" aria-pressed="true">All</button>
+      <button type="button" id="f-live" data-f="live" aria-pressed="false">Live</button>
+      <button type="button" id="f-pub" data-f="pub" aria-pressed="false">Open source</button>
+      <button type="button" id="f-priv" data-f="priv" aria-pressed="false">Private</button>
+    </div>
+    <div class="seg"><button type="button" id="t-shots" aria-pressed="true">Screenshots</button></div>
+  </div>
+</div>
+
+<main>
+<!-- PRODUCTS -->
+<section class="area" id="products">
+  <div class="wrap">
+    <div class="area-head">
+      <div><div class="eyebrow">Live products</div><h2>Shipped, deployed, on Google Play</h2></div>
+      <p>Two UK consumer products, each with a web app, an Android app, payments and an admin back office. I built and run them alone. Both work with money or public data, so correctness and data quality come first.</p>
+    </div>
+    <div class="grid">
+
+      <article class="card" data-s="live priv">
+        <div class="card-top"><div><h3>FuelScope</h3><p class="what">Finds cheap fuel across the UK, using the government's live fuel price feed.</p></div>
+          <div class="chips"><span class="chip c-live">Live · Web + Android</span><span class="chip c-priv">Private</span></div></div>
+        <button type="button" class="shot mid" data-full="img/fuelscope.webp" aria-label="Enlarge screenshot: FuelScope Android app: station list with prices and filters"><img src="img/fuelscope.webp" alt="FuelScope Android app: station list with prices and filters" loading="lazy"></button>
+        <ul>
+          <li>Sync engine for the government API: OAuth token lifecycle, full and incremental syncs, a single-flight lock, and a Postgres baseline so a restart doesn't sync against nothing.</li>
+          <li>Data-quality pipeline: IQR outlier filtering per fuel type, with motorway, island and Northern Ireland stations as separate segments. Detectors for ghost, stale, inverted and misplaced prices.</li>
+          <li>PostGIS geo search with switchable geocoding providers. A separate worker sends price alerts through FCM and Web Push.</li>
+          <li>Stripe subscriptions, magic-link and Google sign-in, AdMob, and analytics with bot detection.</li>
+        </ul>
+        <div class="metrics"><div class="m"><b>~54k</b><span>lines</span></div><div class="m"><b>935</b><span>commits (web + app)</span></div><div class="m"><b>40</b><span>SQL migrations</span></div><div class="m"><b>5</b><span>services</span></div></div>
+        <div class="foot"><div class="stack">Next.js 16 · React 19 · PostGIS · Redis · Expo · Docker</div>
+          <div class="plinks"><a href="https://fuelscope.uk">fuelscope.uk</a><a href="https://play.google.com/store/apps/details?id=uk.fuelscope.app">Google Play</a></div></div>
+      </article>
+
+      <article class="card" data-s="live priv">
+        <div class="card-top"><div><h3>TaxScope UK</h3><p class="what">UK tax calculators for PAYE, NI, limited companies, IR35, dividends and more.</p></div>
+          <div class="chips"><span class="chip c-live">Live · Web + Android</span><span class="chip c-priv">Private</span></div></div>
+        <button type="button" class="shot" data-full="img/taxscope.webp" aria-label="Enlarge screenshot: taxscope.uk home page with the calculator list"><img src="img/taxscope.webp" alt="taxscope.uk home page with the calculator list" loading="lazy"></button>
+        <ul>
+          <li>Implements HMRC's PAYE Tax Table Routines spec v24.0 in exact Decimal arithmetic. Covers tax-code parsing (S/C prefixes, K codes, W1/M1), cumulative and non-cumulative bases, and the statutory rounding rules.</li>
+          <li>Checked against HMRC reference vectors for each tax year.</li>
+          <li>A salary/dividend optimiser that tests only the kink points of the piecewise-linear take-home curve, so it gives an exact answer instead of a grid-search estimate.</li>
+          <li>The Android app runs a line-by-line TypeScript port of the engine offline. Golden fixtures exported from the Python engine keep the two in step.</li>
+        </ul>
+        <div class="metrics"><div class="m"><b>~25k</b><span>lines (web + app)</span></div><div class="m"><b>~260</b><span>tests</span></div><div class="m"><b>393</b><span>commits</span></div><div class="m"><b>8</b><span>calculators</span></div></div>
+        <div class="foot"><div class="stack">Django · DRF · decimal.js · React Native · GitHub Actions</div>
+          <div class="plinks"><a href="https://taxscope.uk">taxscope.uk</a><a href="https://play.google.com/store/apps/details?id=uk.taxscope.app">Google Play</a></div></div>
+      </article>
+
+      <article class="card wide" data-s="priv">
+        <div class="card-top"><div><h3>MicroAccount</h3><p class="what">Bookkeeping and tax for single-director UK limited companies.</p></div>
+          <div class="chips"><span class="chip c-priv">Private</span></div></div>
+        <div class="wide-body">
+          <ul>
+            <li>Multi-tenant, with one database per company. Invoice data is extracted by an LLM (Claude vision), with vendor-specific parsers and SHA-256 de-duplication.</li>
+            <li>Keeps the director's loan account ledger, imports bank CSVs, and computes Corporation Tax with marginal relief and the CT600 pack.</li>
+            <li>Third-party credentials are encrypted at rest with Fernet key rotation. Registration is by invitation only, auth routes are rate-limited, and deploys go out only after lint and tests pass in CI.</li>
+          </ul>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div class="metrics" style="margin-top:0;border-top:0;padding-top:0"><div class="m"><b>~12.5k</b><span>lines</span></div><div class="m"><b>~110</b><span>tests</span></div><div class="m"><b>109</b><span>commits</span></div></div>
+            <div class="stack">FastAPI · SQLAlchemy · Anthropic API · fpdf2 · Stripe · GitHub Actions</div>
+            <div class="plinks"><span class="onreq">Code walkthrough on request</span></div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- AI -->
+<section class="area" id="ai">
+  <div class="wrap">
+    <div class="area-head">
+      <div><div class="eyebrow">AI infrastructure</div><h2>A self-hosted MCP stack I use every day</h2></div>
+      <p>An authentication gateway that sits in front of my own MCP servers. Any AI client, whether Claude, ChatGPT or Codex, reaches my knowledge bases, WhatsApp and SQL tools through one OAuth-protected endpoint.</p>
+    </div>
+
+    <div class="hub" aria-label="Architecture of the MCP stack">
+      <div class="node"><b>AI clients</b><small>Claude · ChatGPT · Codex</small></div>
+      <div class="arrow" aria-hidden="true">→</div>
+      <div class="node core"><b>AuthMCP Gateway</b><small>OAuth 2.1 · PKCE · DCR · routing · audit</small></div>
+      <div class="arrow" aria-hidden="true">→</div>
+      <div class="backends">
+        <div class="node"><b>RAG Knowledge Base</b><small>rag_* tools</small></div>
+        <div class="node"><b>WhatsApp MCP</b><small>wa_* tools</small></div>
+        <div class="node"><b>SQL Cortex · Search Console · Play Console</b><small>other backends</small></div>
+      </div>
+    </div>
+
+    <div class="grid">
+      <article class="card" data-s="pub">
+        <div class="card-top"><div><h3>AuthMCP Gateway</h3><p class="what">An authenticating proxy that merges several MCP servers into one endpoint.</p></div>
+          <div class="chips"><span class="chip c-pub">Open source · PyPI</span></div></div>
+        <button type="button" class="shot" data-full="img/authmcp.webp" aria-label="Enlarge screenshot: AuthMCP Gateway admin dashboard with server health and live MCP activity"><img src="img/authmcp.webp" alt="AuthMCP Gateway admin dashboard with server health and live MCP activity" loading="lazy"></button>
+        <ul>
+          <li>Proxies the full MCP protocol (tools, resources, prompts, completions) with per-backend namespacing and Streamable-HTTP session tracking.</li>
+          <li>OAuth 2.1 for MCP clients: PKCE, Dynamic Client Registration, and Client ID Metadata Documents with SSRF hardening. JWT rotation and a blacklist.</li>
+          <li>Recovers stale sessions under concurrency with a per-server lock and a double check. Decides retries from tool annotations and adds idempotency keys, so a "send message" call is never sent twice.</li>
+          <li>Backend secrets are encrypted at rest. Includes CSRF protection, rate limiting, a security event log and a built-in MCP security auditor.</li>
+        </ul>
+        <div class="metrics"><div class="m"><b>~13k</b><span>lines</span></div><div class="m"><b>~420</b><span>tests</span></div><div class="m"><b>v1.2.74</b><span>on PyPI</span></div><div class="m"><b>12★</b><span>stars</span></div></div>
+        <div class="foot"><div class="stack">Python · Starlette · OAuth 2.1 · JWT · Docker</div>
+          <div class="plinks"><a href="https://github.com/loglux/authmcp-gateway">GitHub</a><a href="https://pypi.org/project/authmcp-gateway/">PyPI</a></div></div>
+      </article>
+
+      <article class="card" data-s="pub">
+        <div class="card-top"><div><h3>RAG Knowledge Base Platform</h3><p class="what">Retrieval and grounded Q&amp;A over document collections, with citations.</p></div>
+          <div class="chips"><span class="chip c-pub">Open source</span></div></div>
+        <button type="button" class="shot" data-full="img/rag.webp" aria-label="Enlarge screenshot: Chat over four books with numbered source citations"><img src="img/rag.webp" alt="Chat over four books with numbered source citations" loading="lazy"></button>
+        <ul>
+          <li>Hybrid retrieval: Qdrant vectors plus OpenSearch BM25 with weighted score fusion, MMR, context-window expansion and optional Voyage or Cohere reranking.</li>
+          <li>A query classifier spots identifier queries ("Question 6", "p. 42", in English and Russian) and shifts weight toward lexical search.</li>
+          <li>Fixed, recursive and semantic chunking. Section-aware metadata and PDF page numbers are carried into the citations.</li>
+          <li>Built-in evaluation: a gold-set harness (exact match, F1, source recall) and auto-tuning. Also served as an OAuth-protected MCP server with 16 tools.</li>
+        </ul>
+        <div class="metrics"><div class="m"><b>~38k</b><span>lines</span></div><div class="m"><b>~310</b><span>tests</span></div><div class="m"><b>58</b><span>migrations</span></div><div class="m"><b>359</b><span>commits</span></div></div>
+        <div class="foot"><div class="stack">FastAPI · Qdrant · OpenSearch · PostgreSQL · React · CI</div>
+          <div class="plinks"><a href="https://github.com/loglux/RAG-Knowledge-Base-Platform">GitHub</a></div></div>
+      </article>
+    </div>
+
+    <div class="compact" style="margin-top:16px">
+      <div data-s="pub"><b>WhatsApp MCP Stream</b> <span class="chip c-pub">Open source</span><p>A TypeScript MCP server for WhatsApp, with staged reconnection, send deduplication, LID-to-phone identity mapping and a local SQLite store. ~9k lines, ~170 tests, CI.</p></div>
+      <div data-s="pub"><b>SQL Cortex MCP</b> <span class="chip c-pub">Open source</span><p>Gives AI agents access to SQL databases under a policy layer that understands string literals, with per-dialect timeouts and schema-diff and migration-planning tools.</p></div>
+      <div data-s="pub"><b>Grammar-LLM-Bridge</b> <span class="chip c-pub">Open source</span><p>A drop-in replacement for the LanguageTool API that runs on an LLM. Offsets stay exact, in UTF-16 code units. Includes gold-set quality and latency benchmarks.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WRITING -->
+<section class="area" id="writing">
+  <div class="wrap">
+    <div class="area-head">
+      <div><div class="eyebrow">Writing tools</div><h2>One proofing engine, three platforms</h2></div>
+      <p>A design for spelling, grammar and style checking that I built first in a terminal editor, then carried into an Obsidian plugin and a Word-like desktop app. Every version follows the same rule: typing never waits for a checker.</p>
+    </div>
+    <div class="grid">
+      <article class="card" data-s="pub">
+        <div class="card-top"><div><h3>BlueEdit</h3><p class="what">A fast DOS-style console editor for writing, mathematics and code, on Windows and Linux.</p></div>
+          <div class="chips"><span class="chip c-pub">Open source</span></div></div>
+        <button type="button" class="shot" data-full="img/blueedit.webp" aria-label="Enlarge screenshot: BlueEdit showing LaTeX formulas typeset as Sixel pictures in the terminal"><img src="img/blueedit.webp" alt="BlueEdit showing LaTeX formulas typeset as Sixel pictures in the terminal" loading="lazy"></button>
+        <ul>
+          <li>Its own terminal rendering layer that redraws only the changed cells, with a VT input parser and wide-character handling. A key reaches the screen in about 5 ms.</li>
+          <li>LaTeX formulas laid out over several text rows (fractions, roots, matrices), or typeset as Sixel images in Windows Terminal.</li>
+          <li>An LSP client written from scratch, using JSON-RPC over stdio.</li>
+          <li>Pluggable proofing: LanguageTool, Hunspell, the Windows and Word spellers, and local LLMs through llama.cpp with schema-constrained output. Error positions come from a word-level diff. Includes a fastText port for language detection.</li>
+        </ul>
+        <div class="metrics"><div class="m"><b>~18k</b><span>lines of C#</span></div><div class="m"><b>~600</b><span>tests</span></div><div class="m"><b>30</b><span>releases</span></div><div class="m"><b>~5 ms</b><span>keystroke</span></div></div>
+        <div class="foot"><div class="stack">C# · .NET 10 · LSP · Sixel · llama.cpp · Inno Setup</div>
+          <div class="plinks"><a href="https://github.com/loglux/blueedit">GitHub</a></div></div>
+      </article>
+
+      <article class="card" data-s="pub live">
+        <div class="card-top"><div><h3>BlueProof</h3><p class="what">LLM spelling and grammar checking for Obsidian that leaves LaTeX formulas alone.</p></div>
+          <div class="chips"><span class="chip c-live">Obsidian directory</span><span class="chip c-pub">Open source</span></div></div>
+        <button type="button" class="shot contain" data-full="img/blueproof.webp" aria-label="Enlarge screenshot: BlueProof underlining errors in an Obsidian note"><img src="img/blueproof.webp" alt="BlueProof underlining errors in an Obsidian note" loading="lazy"></button>
+        <ul>
+          <li>Checks only the paragraphs on screen, after a pause. Answers are keyed by the paragraph's text, so a stale answer is never drawn.</li>
+          <li>An LRU answer cache with exponential backoff that honours Retry-After. Long paragraphs are split at sentence ends, never inside a formula.</li>
+          <li>Runs Hunspell in a Web Worker and fastText in WASM. Desktop, Android and iOS.</li>
+          <li>Models and chunking were chosen by benchmark, and the benchmark results are published.</li>
+        </ul>
+        <div class="metrics"><div class="m"><b>~9k</b><span>lines of TS</span></div><div class="m"><b>~430</b><span>tests</span></div><div class="m"><b>212</b><span>commits</span></div></div>
+        <div class="foot"><div class="stack">TypeScript · CodeMirror 6 · WASM · Vitest</div>
+          <div class="plinks"><a href="https://github.com/loglux/obsidian-blueproof">GitHub</a></div></div>
+      </article>
+
+      <article class="card" data-s="priv">
+        <div class="card-top"><div><h3>Markulator</h3><p class="what">A Markdown and LaTeX editor that looks and works like Microsoft Word.</p></div>
+          <div class="chips"><span class="chip c-dev">In development</span><span class="chip c-priv">Private</span></div></div>
+        <ul>
+          <li>Its own .docx writer. LaTeX becomes native Word equations (OMML), translated straight from KaTeX's parse tree. I chose this over Pandoc after measuring both.</li>
+          <li>Page layout drawn over a single ProseMirror document, with a Markdown round trip that keeps formulas byte for byte.</li>
+          <li>Keystrokes take about 2–3 ms on a 2,000-paragraph document.</li>
+        </ul>
+        <div class="metrics"><div class="m"><b>~10.5k</b><span>lines</span></div><div class="m"><b>~440</b><span>tests</span></div></div>
+        <div class="foot"><div class="stack">Tauri 2 · Rust · TypeScript · Tiptap · KaTeX · Playwright</div>
+          <div class="plinks"><span class="onreq">Code walkthrough on request</span></div></div>
+      </article>
+
+      <article class="card" data-s="pub live">
+        <div class="card-top"><div><h3>Fix Math &amp; Auto Math</h3><p class="what">Obsidian plugins for LaTeX pasted from AI assistants, and for typing maths faster.</p></div>
+          <div class="chips"><span class="chip c-live">Obsidian directory</span><span class="chip c-pub">Open source</span></div></div>
+        <ul>
+          <li>Fix Math turns <span class="mono">\[…\]</span> and <span class="mono">\(…\)</span> from ChatGPT into Obsidian's <span class="mono">$…$</span> form, and leaves code untouched.</li>
+          <li>Auto Math expands snippets from user rule files that reload live. It includes a dependency-free LaTeX tokenizer and a LaTeX-to-Maxima translator.</li>
+        </ul>
+        <div class="metrics"><div class="m"><b>8,800+</b><span>Fix Math downloads</span></div><div class="m"><b>3,700+</b><span>Auto Math downloads</span></div><div class="m"><b>36★</b><span>stars</span></div></div>
+        <div class="foot"><div class="stack">TypeScript · Obsidian API</div>
+          <div class="plinks"><a href="https://github.com/loglux/fix-math-for-obsidian">Fix Math</a><a href="https://github.com/loglux/auto-math-for-obsidian">Auto Math</a></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PROVISIONING -->
+<section class="area" id="provisioning">
+  <div class="wrap">
+    <div class="area-head">
+      <div><div class="eyebrow">Device provisioning</div><h2>A laptop build pipeline, from barcode to imaged machine</h2></div>
+      <p>Production tooling for building an IT department's fleet of HP and Dell laptops. On GitHub these look like separate small utilities. Together they form one pipeline. Most tools ship as a C# app and a readable PowerShell script under one version number, and tests keep the two editions in step.</p>
+    </div>
+
+    <div class="flow" role="list" aria-label="Provisioning pipeline">
+      <div class="step" role="listitem"><h4>Scan</h4><p>The engineer scans the serial, name label and asset tag of each switched-off laptop, in any order. Works offline.</p><div class="tools">AssetScanner</div></div>
+      <div class="step" role="listitem"><h4>Look up</h4><p>An HTTP service answers each machine's name and tag by its BIOS serial. Hot-reloads its data and can run as a Windows service.</p><div class="tools">InventoryLookup</div></div>
+      <div class="step" role="listitem"><h4>Boot</h4><p>Custom WinPE images are cloned onto many USB sticks at once, or booted over the network.</p><div class="tools">WinPE-Builder · USBImageClone · MultiUSBSync · iPXE Station</div></div>
+      <div class="step" role="listitem"><h4>Build</h4><p>Flashes the BIOS if needed, applies the security profile for the model, then images, names and tags the machine.</p><div class="tools">BuildPipeline</div></div>
+    </div>
+
+    <div class="grid">
+      <article class="card wide" data-s="priv">
+        <div class="card-top"><div><h3>BuildPipeline</h3><p class="what">A WinPE pipeline that flashes BIOS, sets BIOS security and images HP and Dell laptops.</p></div>
+          <div class="chips"><span class="chip c-live">In production</span><span class="chip c-priv">Private</span></div></div>
+        <div class="wide-body">
+          <ul>
+            <li>An idempotent state machine that resumes correctly after the firmware flash's own reboot. A UEFI BootNext entry brings the machine back to the pendrive.</li>
+            <li>Wraps HP BCU and Dell cctk: every BIOS change is read, set and read back. One CSV row and one profile per model, with no per-model scripts.</li>
+            <li>A stateful fake BIOS makes the logic testable without hardware. Regression tests compare its output byte for byte with the legacy batch-file system it replaced.</li>
+          </ul>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div class="metrics" style="margin-top:0;border-top:0;padding-top:0"><div class="m"><b>491</b><span>commits</span></div><div class="m"><b>30</b><span>releases</span></div><div class="m"><b>~200</b><span>test checks</span></div></div>
+            <div class="stack">PowerShell · WinPE · WMI · HP BCU · Dell cctk</div>
+            <div class="plinks"><span class="onreq">Code walkthrough on request</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-s="priv">
+        <div class="card-top"><div><h3>USBImageClone</h3><p class="what">Captures a bootable USB drive and writes it to many drives at once, in the spirit of Rufus or Etcher.</p></div>
+          <div class="chips"><span class="chip c-priv">Private</span></div></div>
+        <button type="button" class="shot" data-full="img/usbimageclone.webp" aria-label="Enlarge screenshot: USBImageClone provisioning several USB drives from an ISO"><img src="img/usbimageclone.webp" alt="USBImageClone provisioning several USB drives from an ISO" loading="lazy"></button>
+        <ul>
+          <li>Unbuffered, write-through I/O on raw physical drives with sector-aligned buffers, so copies of hundreds of GB don't flood the file cache.</li>
+          <li>Its own FAT32 formatter for drives above 32 GB, written from Microsoft's fatgen103 spec.</li>
+          <li>Pure-function checks run before any write. Each copy is verified against the image, and one failing drive doesn't stop the others.</li>
+        </ul>
+        <div class="metrics"><div class="m"><b>~9.4k</b><span>lines</span></div><div class="m"><b>8</b><span>releases</span></div><div class="m"><b>2</b><span>editions</span></div></div>
+        <div class="foot"><div class="stack">C# · .NET 4.8 · Win32 I/O · PowerShell · Pester</div>
+          <div class="plinks"><span class="onreq">Code walkthrough on request</span></div></div>
+      </article>
+
+      <article class="card" data-s="priv">
+        <div class="card-top"><div><h3>WinPE-Builder</h3><p class="what">Builds custom WinPE images and installation images from JSON recipes.</p></div>
+          <div class="chips"><span class="chip c-priv">Private</span></div></div>
+        <button type="button" class="shot" data-full="img/winpe.webp" aria-label="Enlarge screenshot: WinPE Toolbox: choosing components for a new image"><img src="img/winpe.webp" alt="WinPE Toolbox: choosing components for a new image" loading="lazy"></button>
+        <ul>
+          <li>Calls the managed DISM API directly from .NET 10 to add components, inject drivers and edit the offline registry.</li>
+          <li>Recovers from killed builds: it records the owning process ID and start time, then unmounts only the images it left behind.</li>
+          <li>Inspects an image in seconds without mounting it. Comes with a GUI, a CLI and a PowerShell edition.</li>
+        </ul>
+        <div class="metrics"><div class="m"><b>~12.8k</b><span>lines</span></div><div class="m"><b>16</b><span>releases</span></div></div>
+        <div class="foot"><div class="stack">C# · .NET 10 · DISM API · wimgapi · WinForms</div>
+          <div class="plinks"><span class="onreq">Code walkthrough on request</span></div></div>
+      </article>
+
+      <article class="card wide" data-s="pub">
+        <div class="card-top"><div><h3>iPXE Station</h3><p class="what">A self-hosted PXE/iPXE boot server with a web interface.</p></div>
+          <div class="chips"><span class="chip c-pub">Open source</span></div></div>
+        <div class="wide-body">
+          <div style="display:flex;flex-direction:column;gap:12px;min-width:0">
+            <ul>
+              <li>Proxy DHCP through dnsmasq that runs alongside the existing DHCP server. Handles BIOS, UEFI and iPXE clients separately.</li>
+              <li>Nested menu builder with cycle detection, generating both iPXE and GRUB. Kernel parameters come from boot recipes for each distro.</li>
+              <li>Booted machines report missing drivers, battery health and kernel errors back to the server.</li>
+            </ul>
+            <div class="metrics"><div class="m"><b>~19k</b><span>lines</span></div><div class="m"><b>~390</b><span>backend tests</span></div><div class="m"><b>406</b><span>commits</span></div></div>
+            <div class="foot"><div class="stack">FastAPI · React · dnsmasq · iPXE · Docker</div>
+              <div class="plinks"><a href="https://github.com/loglux/ipxe-station">GitHub</a></div></div>
+          </div>
+          <button type="button" class="shot" data-full="img/ipxe.webp" aria-label="Enlarge screenshot: iPXE Station menu builder"><img src="img/ipxe.webp" alt="iPXE Station menu builder with boot entries and the entry editor" loading="lazy"></button>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PLATFORMS -->
+<section class="area" id="platforms">
+  <div class="wrap">
+    <div class="area-head">
+      <div><div class="eyebrow">More platforms</div><h2>Telephony, research, audio and operations</h2></div>
+      <p>Systems that each needed knowledge of a domain beyond web development: Asterisk telephony, discourse analysis, audio processing, SSH and cryptography, observability.</p>
+    </div>
+    <div class="grid">
+      <article class="card" data-s="priv">
+        <div class="card-top"><div><h3>DigitalPBX</h3><p class="what">A modern alternative to FreePBX for managing Asterisk, with an AI voice agent.</p></div>
+          <div class="chips"><span class="chip c-priv">Private</span></div></div>
+        <ul>
+          <li>The whole PBX model (about 15 entity types) lives in Postgres. PJSIP and dialplan config is generated from Jinja templates and reloaded through Celery.</li>
+          <li>Streams live AMI events to the browser over WebSockets and saves call records.</li>
+          <li>An AI phone agent that speaks Asterisk's AudioSocket protocol: voice detection, then speech-to-text, LLM and text-to-speech, with pluggable providers and call transfer.</li>
+          <li>Auto-provisioning for Yealink, Polycom, Snom, Fanvil and Grandstream phones. TOTP two-factor login and an audit log.</li>
+        </ul>
+        <div class="metrics"><div class="m"><b>~22k</b><span>lines</span></div><div class="m"><b>32</b><span>migrations</span></div><div class="m"><b>~40</b><span>test files</span></div></div>
+        <div class="foot"><div class="stack">FastAPI · React · Asterisk · AMI · Celery · Redis · CI</div>
+          <div class="plinks"><span class="onreq">Code walkthrough on request</span></div></div>
+      </article>
+
+      <article class="card" data-s="priv">
+        <div class="card-top"><div><h3>CDA Toolkit</h3><p class="what">LLM pipelines for Critical Discourse Analysis of news text, used in academic research.</p></div>
+          <div class="chips"><span class="chip c-priv">Private</span></div></div>
+        <ul>
+          <li>Five stages in dependency order: quotes, social actors, quote analysis, actor power, review. Each stage builds on the output of the earlier ones.</li>
+          <li>One JSON schema mapped onto each provider's native structured output: Anthropic, OpenAI, Gemini, DeepSeek and Ollama.</li>
+          <li>Circuit breakers, recovery of truncated JSON, Wikidata entity matching and cost tracking for each run. Supports a draft paper with an inter-rater reliability protocol.</li>
+        </ul>
+        <div class="metrics"><div class="m"><b>~23k</b><span>lines</span></div><div class="m"><b>5</b><span>LLM providers</span></div></div>
+        <div class="foot"><div class="stack">FastAPI · React · TypeScript · multi-LLM</div>
+          <div class="plinks"><span class="onreq">Code walkthrough on request</span></div></div>
+      </article>
+
+      <article class="card" data-s="priv">
+        <div class="card-top"><div><h3>FlexAudioHub</h3><p class="what">A transcription platform, and a native Android app that turns therapy sessions into clinical notes.</p></div>
+          <div class="chips"><span class="chip c-priv">Private</span></div></div>
+        <ul>
+          <li>Adaptive chunking (the server's first, then local ffmpeg), speaker diarization, and de-duplication by content hash and audio fingerprint.</li>
+          <li>Per-user API keys encrypted at rest, with cost quotas and usage pricing.</li>
+          <li>Kotlin/Compose app with a foreground recording service and Room storage. Token refresh is safe under concurrent requests. SOAP notes come from schema-constrained LLM output.</li>
+        </ul>
+        <div class="metrics"><div class="m"><b>~20k</b><span>lines</span></div><div class="m"><b>25</b><span>migrations</span></div><div class="m"><b>2</b><span>clients</span></div></div>
+        <div class="foot"><div class="stack">FastAPI · React PWA · Kotlin · Jetpack Compose · CI</div>
+          <div class="plinks"><span class="onreq">Code walkthrough on request</span></div></div>
+      </article>
+
+      <article class="card" data-s="priv">
+        <div class="card-top"><div><h3>termhub</h3><p class="what">An SSH workspace for Windows, with ClusterSSH-style typing into many hosts at once.</p></div>
+          <div class="chips"><span class="chip c-priv">Private</span></div></div>
+        <ul>
+          <li>ConPTY tabs that host the Windows Terminal control. Its own SFTP v3 client with many requests in flight.</li>
+          <li>Converts PuTTY keys to OpenSSH with Argon2 and bcrypt-pbkdf implemented in the repo. Imports sessions from MobaXterm and PuTTY.</li>
+          <li>Passwords stay in Windows Credential Manager and reach OpenSSH through SSH_ASKPASS.</li>
+        </ul>
+        <div class="metrics"><div class="m"><b>~18k</b><span>lines of C#</span></div><div class="m"><b>~150</b><span>tests</span></div></div>
+        <div class="foot"><div class="stack">C# · .NET 10 · WPF · ConPTY · OpenSSH</div>
+          <div class="plinks"><span class="onreq">Code walkthrough on request</span></div></div>
+      </article>
+    </div>
+
+    <div class="compact" style="margin-top:16px">
+      <div data-s="priv"><b>Northern Lights</b> <span class="chip c-priv">Private</span><p>A multi-host observability stack (Prometheus, Loki, Grafana) driven by a TOML inventory, with LLM alert triage sent to Telegram.</p></div>
+      <div data-s="pub"><b>Ring RTSP Bridge</b> <span class="chip c-pub">Open source</span><p>Brings Ring cameras into a local Frigate NVR, with workarounds for undocumented H.264 and push-channel failures.</p></div>
+      <div data-s="pub"><b>NAS DevBox</b> <span class="chip c-pub">Open source</span><p>A full Linux development environment in a container on a NAS, controlling the host's Docker. Comes with a LinkedIn article.</p></div>
+      <div data-s="pub"><b>FlexAudioPrint</b> <span class="chip c-pub">Open source</span><p>Whisper transcription in a web app, with subtitles and translation. 10★.</p></div>
+      <div data-s="pub"><b>SpeakItAI</b> <span class="chip c-pub">Open source</span><p>Azure Neural text-to-speech with a web interface. 45★, my most-starred repository.</p></div>
+      <div data-s="pub"><b>Smaller tools</b> <span class="chip c-pub">Open source</span><p>Microsoft Learn video downloader (8★), VPN routing for AsusWRT Merlin, Keyboard Layout Fixer, Belfast bin-collection tracker.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRACTICE -->
+<section class="area" id="practice">
+  <div class="wrap">
+    <div class="area-head">
+      <div><div class="eyebrow">How I work</div><h2>Habits that show up across the code</h2></div>
+      <p>These are patterns I saw again and again when reviewing these repositories, not slogans.</p>
+    </div>
+    <div class="principles">
+      <div class="principle"><h3>Check against a reference</h3><p>Tax engines are tested against HMRC vectors. The mobile port is checked against golden fixtures exported from the server. The new build pipeline is compared byte for byte with the system it replaced.</p></div>
+      <div class="principle"><h3>Measure before choosing</h3><p>Proofing models, chunking and the Word export path were each chosen by benchmark, and the results are written up. Keystroke latency is measured, not guessed.</p></div>
+      <div class="principle"><h3>Safe by default around hardware and money</h3><p>Every BIOS setting is read back after writing. Every disk write passes a preflight check first. Money is always Decimal. Secrets are encrypted at rest, and tool calls carry idempotency keys.</p></div>
+      <div class="principle"><h3>Ship the whole thing</h3><p>Installers, release scripts with checksums, migrations, user guides for non-developers in PDF and HTML, and design-decision records in English and Russian.</p></div>
+    </div>
+
+    <p style="margin:24px 0 0;max-width:78ch">Open-source contribution: my fix for a race condition in auto-checking was <a href="https://github.com/Clemens-E/obsidian-languagetool-plugin/pull/144">merged into the LanguageTool plugin for Obsidian</a>.</p>
+  </div>
+</section>
+
+<section class="area" id="stack">
+  <div class="wrap">
+    <div class="area-head"><div><div class="eyebrow">Toolbox</div><h2>Stack</h2></div><p>Grouped by how much production code I have in each, most first.</p></div>
+    <div class="tbl">
+      <table class="skills">
+        <tr><th>Languages</th><td>Python · TypeScript · C# / .NET · PowerShell · Kotlin · SQL · some Rust</td></tr>
+        <tr><th>Backend</th><td>FastAPI · Django / DRF · Starlette · Next.js · SQLAlchemy · Alembic · Celery · Redis</td></tr>
+        <tr><th>Data &amp; search</th><td>PostgreSQL · PostGIS · SQLite · Qdrant · OpenSearch / BM25</td></tr>
+        <tr><th>AI</th><td>MCP servers and gateways · RAG · OpenAI · Anthropic · Gemini · DeepSeek · Ollama · llama.cpp · Whisper · Azure AI (AI-102)</td></tr>
+        <tr><th>Clients</th><td>React · React Native / Expo · Kotlin / Compose · WPF · WinForms · Tauri · terminal UIs · Obsidian / CodeMirror</td></tr>
+        <tr><th>Security</th><td>OAuth 2.1 / PKCE / DCR · JWT · Fernet encryption at rest · SSRF guards · rate limiting · TOTP</td></tr>
+        <tr><th>Ops</th><td>Docker Compose · GitHub Actions · nginx · Prometheus / Loki / Grafana · Linux VPS · NAS self-hosting</td></tr>
+        <tr><th>Windows &amp; hardware</th><td>WinPE · DISM · PXE / iPXE · HP BCU · Dell cctk · raw disk I/O · Asterisk / PJSIP</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>Vladislav Sorokin · Belfast · <a href="https://github.com/loglux">github.com/loglux</a></div>
+    <div class="mono" style="font-size:12.5px">Figures from repository analysis, October 2026</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btns=document.querySelectorAll('.seg button');
+  function apply(f){
+    btns.forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.f===f))});
+    document.querySelectorAll('[data-s]').forEach(function(el){
+      el.setAttribute('data-hide', f==='all'||el.dataset.s.split(' ').indexOf(f)>-1 ? '0':'1');
+    });
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){apply(b.dataset.f);try{localStorage.setItem('pf-filter',b.dataset.f)}catch(e){}})});
+  try{var s=localStorage.getItem('pf-filter');if(s)apply(s)}catch(e){}
+
+  // Screenshots on/off: two versions of the page from one file. #text opens the text-only version.
+  var root=document.documentElement, tb=document.getElementById('t-shots');
+  function shots(on){root.classList.toggle('noshots',!on);tb.setAttribute('aria-pressed',String(on))}
+  var pref=null;try{pref=localStorage.getItem('pf-shots')}catch(e){}
+  shots(location.hash==='#text'?false:pref!=='0');
+  tb.addEventListener('click',function(){var on=root.classList.contains('noshots');shots(on);try{localStorage.setItem('pf-shots',on?'1':'0')}catch(e){}});
+
+  // Lightbox
+  var lb=null,last=null;
+  function close(){if(lb){lb.remove();lb=null;if(last)last.focus()}}
+  document.addEventListener('click',function(ev){
+    var b=ev.target.closest('.shot');if(!b)return;
+    last=b;lb=document.createElement('div');lb.className='lb';lb.setAttribute('role','dialog');lb.setAttribute('aria-modal','true');
+    var img=document.createElement('img');img.src=b.dataset.full;img.alt=b.querySelector('img').alt;
+    var x=document.createElement('button');x.type='button';x.textContent='Close';
+    lb.append(img,x);lb.addEventListener('click',close);document.body.append(lb);x.focus();
+  });
+  document.addEventListener('keydown',function(ev){if(ev.key==='Escape')close()});
+})();
+</script>
+
+</body>
+</html>
