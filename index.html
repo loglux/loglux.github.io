@@ -564,18 +564,23 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <p>Systems that each needed knowledge of a domain beyond web development: Asterisk telephony, discourse analysis, audio processing, SSH and cryptography, observability.</p>
     </div>
     <div class="grid">
-      <article id="digitalpbx" class="card" data-s="priv">
+      <article id="digitalpbx" class="card wide" data-s="priv">
         <div class="card-top"><div><h3>DigitalPBX</h3><p class="what">A modern alternative to FreePBX for managing Asterisk, with an AI voice agent.</p></div>
           <div class="chips"><span class="chip c-dev">In development</span><span class="chip c-priv">Private</span></div></div>
-        <ul>
-          <li>The whole PBX model (about 15 entity types) lives in Postgres. PJSIP and dialplan config is generated from Jinja templates and reloaded through Celery.</li>
-          <li>Streams live AMI events to the browser over WebSockets and saves call records.</li>
-          <li>An AI phone agent that speaks Asterisk's AudioSocket protocol: voice detection, then speech-to-text, LLM and text-to-speech, with pluggable providers and call transfer.</li>
-          <li>Auto-provisioning for Yealink, Polycom, Snom, Fanvil and Grandstream phones. TOTP two-factor login and an audit log.</li>
-        </ul>
-        <div class="metrics"><div class="m"><b>~22k</b><span>lines</span></div><div class="m"><b>32</b><span>migrations</span></div><div class="m"><b>~40</b><span>test files</span></div></div>
-        <div class="foot"><div class="stack">FastAPI · React · Asterisk · AMI · Celery · Redis · CI</div>
-          <div class="plinks"><span class="onreq">Code walkthrough on request</span></div></div>
+        <div class="wide-body">
+          <button type="button" class="shot" data-full="img/digitalpbx.webp" aria-label="Enlarge screenshot: DigitalPBX call records"><img src="img/digitalpbx.webp" alt="DigitalPBX call records: totals for answered and missed calls above a filterable call log with direction, duration and disposition" loading="lazy"></button>
+          <div style="display:flex;flex-direction:column;gap:12px;min-width:0">
+            <ul>
+              <li>The whole PBX model (about 15 entity types) lives in Postgres. PJSIP and dialplan config is generated from Jinja templates and reloaded through Celery.</li>
+              <li>Streams live AMI events to the browser over WebSockets and saves call records.</li>
+              <li>An AI phone agent that speaks Asterisk's AudioSocket protocol: voice detection, then speech-to-text, LLM and text-to-speech, with pluggable providers and call transfer.</li>
+              <li>Auto-provisioning for Yealink, Polycom, Snom, Fanvil and Grandstream phones. TOTP two-factor login and an audit log.</li>
+            </ul>
+            <div class="metrics"><div class="m"><b>~22k</b><span>lines</span></div><div class="m"><b>32</b><span>migrations</span></div><div class="m"><b>~40</b><span>test files</span></div></div>
+            <div class="foot"><div class="stack">FastAPI · React · Asterisk · AMI · Celery · Redis · CI</div>
+              <div class="plinks"><span class="onreq">Code walkthrough on request</span></div></div>
+          </div>
+        </div>
       </article>
 
       <article id="cda-toolkit" class="card" data-s="priv">
@@ -604,17 +609,22 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
           <div class="plinks"><span class="onreq">Code walkthrough on request</span></div></div>
       </article>
 
-      <article id="termhub" class="card" data-s="priv">
+      <article id="termhub" class="card wide" data-s="priv">
         <div class="card-top"><div><h3>TermHub</h3><p class="what">An SSH workspace for Windows, with ClusterSSH-style typing into many hosts at once.</p></div>
           <div class="chips"><span class="chip c-dev">In development</span><span class="chip c-priv">Private</span></div></div>
-        <ul>
-          <li>ConPTY tabs that host the Windows Terminal control. Its own SFTP v3 client with many requests in flight.</li>
-          <li>Converts PuTTY keys to OpenSSH with Argon2 and bcrypt-pbkdf implemented in the repo. Imports sessions from MobaXterm and PuTTY.</li>
-          <li>Passwords stay in Windows Credential Manager and reach OpenSSH through SSH_ASKPASS.</li>
-        </ul>
-        <div class="metrics"><div class="m"><b>~18k</b><span>lines of C#</span></div><div class="m"><b>~150</b><span>tests</span></div></div>
-        <div class="foot"><div class="stack">C# · .NET 10 · WPF · ConPTY · OpenSSH</div>
-          <div class="plinks"><span class="onreq">Code walkthrough on request</span></div></div>
+        <div class="wide-body">
+          <button type="button" class="shot" data-full="img/termhub.webp" aria-label="Enlarge screenshot: TermHub sessions"><img src="img/termhub.webp" alt="TermHub: saved SSH sessions in groups, with the connection details of one host" loading="lazy"></button>
+          <div style="display:flex;flex-direction:column;gap:12px;min-width:0">
+            <ul>
+              <li>ConPTY tabs that host the Windows Terminal control. Its own SFTP v3 client with many requests in flight.</li>
+              <li>Converts PuTTY keys to OpenSSH with Argon2 and bcrypt-pbkdf implemented in the repo. Imports sessions from MobaXterm and PuTTY.</li>
+              <li>Passwords stay in Windows Credential Manager and reach OpenSSH through SSH_ASKPASS.</li>
+            </ul>
+            <div class="metrics"><div class="m"><b>~18k</b><span>lines of C#</span></div><div class="m"><b>~150</b><span>tests</span></div></div>
+            <div class="foot"><div class="stack">C# · .NET 10 · WPF · ConPTY · OpenSSH</div>
+              <div class="plinks"><span class="onreq">Code walkthrough on request</span></div></div>
+          </div>
+        </div>
       </article>
     </div>
 
