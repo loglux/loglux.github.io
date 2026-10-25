@@ -363,6 +363,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         <button type="button" class="shot" data-full="img/rag.webp" aria-label="Enlarge screenshot: Chat over four books with numbered source citations"><img src="img/rag.webp" alt="Chat over four books with numbered source citations" loading="lazy"></button>
         <ul>
           <li>Hybrid retrieval: Qdrant vectors plus OpenSearch BM25 with weighted score fusion, MMR, context-window expansion and optional Voyage or Cohere reranking.</li>
+          <li>A query classifier spots identifier queries ("Question 6", "p. 42") and shifts weight toward lexical search.</li>
           <li>Fixed, recursive and semantic chunking. Section-aware metadata and PDF page numbers are carried into the citations.</li>
           <li>Built-in evaluation: a gold-set harness (exact match, F1, source recall) and auto-tuning. Also served as an OAuth-protected MCP server with 16 tools.</li>
         </ul>
