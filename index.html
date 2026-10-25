@@ -53,6 +53,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 .wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;letter-spacing:-.01em}
 .mono{font-family:var(--mono)}
+.card code{font:.92em var(--mono);white-space:nowrap}
 .eyebrow{font:500 12px/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 
 /* hero */
@@ -425,9 +426,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
           <button type="button" class="shot" data-full="img/markulator.webp" aria-label="Enlarge screenshot: Markulator editing a document with formulas"><img src="img/markulator.webp" alt="Markulator: a Word-like ribbon above a document with inline and display formulas typeset as you write" loading="lazy"></button>
           <div style="display:flex;flex-direction:column;gap:12px;min-width:0">
             <ul>
-              <li>Its own .docx writer. LaTeX becomes native Word equations (OMML), translated straight from KaTeX's parse tree. I chose this over Pandoc after measuring both.</li>
-              <li>Page layout drawn over a single ProseMirror document, with a Markdown round trip that keeps formulas byte for byte.</li>
-              <li>Keystrokes take about 2–3 ms on a 2,000-paragraph document.</li>
+              <li>The files stay plain Markdown. They open in any other editor, and a file saved without changes comes back exactly as it was.</li>
+              <li>LaTeX formulas appear typeset as you type: the closing <code>$</code> turns <code>$x^2$</code> into a formula at once. A click opens it for editing, with the live result underneath.</li>
+              <li>It catches formula mistakes as you type and offers a fix: a misspelt <code>\farc</code>, a missing <code>}</code>, an unclosed <code>\begin</code>, <code>\lcm</code> that KaTeX has no command for. A fix is offered only if the formula then typesets.</li>
+              <li>Exports to Word with real, editable Word equations. I wrote the converter myself after measuring Pandoc.</li>
             </ul>
             <div class="metrics"><div class="m"><b>~10.5k</b><span>lines</span></div><div class="m"><b>~440</b><span>tests</span></div></div>
             <div class="foot"><div class="stack">Tauri 2 · Rust · TypeScript · Tiptap · KaTeX · Playwright</div>
