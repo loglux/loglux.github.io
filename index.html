@@ -228,10 +228,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     </div>
 
     <div class="stats" role="list">
-      <div class="stat" role="listitem"><div class="n">5,800+</div><div class="l">contributions in the last 12 months</div></div>
-      <div class="stat" role="listitem"><div class="n">12,600+</div><div class="l">Obsidian plugin downloads</div></div>
-      <div class="stat" role="listitem"><div class="n">~370k</div><div class="l">lines of non-test code in the main projects</div></div>
-      <div class="stat" role="listitem"><div class="n">3,500+</div><div class="l">automated tests across them</div></div>
+      <div class="stat" role="listitem"><div class="n">6,300+</div><div class="l">contributions in the last 12 months</div></div>
+      <div class="stat" role="listitem"><div class="n">13,500+</div><div class="l">Obsidian plugin downloads</div></div>
+      <div class="stat" role="listitem"><div class="n">~410k</div><div class="l">lines of non-test code in the main projects</div></div>
+      <div class="stat" role="listitem"><div class="n">3,900+</div><div class="l">automated tests across them</div></div>
       <div class="stat" role="listitem"><div class="n">2</div><div class="l">Android apps on Google Play</div></div>
       <div class="stat" role="listitem"><div class="n">1</div><div class="l">merged upstream fix in an Obsidian plugin</div></div>
     </div>
@@ -395,12 +395,12 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         <button type="button" class="shot" data-full="img/blueedit.webp" aria-label="Enlarge screenshot: BlueEdit showing LaTeX formulas typeset as Sixel pictures in the terminal"><img src="img/blueedit.webp" alt="BlueEdit showing LaTeX formulas typeset as Sixel pictures in the terminal" loading="lazy"></button>
         <ul>
           <li>Its own terminal rendering layer that redraws only the changed cells, with a VT input parser and wide-character handling. A key reaches the screen in about 5 ms.</li>
-          <li>LaTeX formulas laid out over several text rows (fractions, roots, matrices), or typeset as Sixel images in Windows Terminal.</li>
+          <li>LaTeX formulas laid out over several text rows (fractions, roots, matrices), or typeset as Sixel images in Windows Terminal. Pictures in Markdown are shown the same way.</li>
           <li>An LSP client written from scratch, using JSON-RPC over stdio.</li>
-          <li>Pluggable proofing: LanguageTool, Hunspell, the Windows and Word spellers, and local LLMs through llama.cpp with schema-constrained output. Error positions come from a word-level diff. Includes a fastText port for language detection.</li>
+          <li>Pluggable proofing: LanguageTool, Hunspell, the Windows and Word spellers, and LLMs, local through llama.cpp or in the cloud (Claude, OpenAI, Gemini, DeepSeek), with schema-constrained output. Error positions come from a word-level diff. Includes a fastText port for language detection.</li>
         </ul>
-        <div class="metrics"><div class="m"><b>~18k</b><span>lines of C#</span></div><div class="m"><b>~600</b><span>tests</span></div><div class="m"><b>30</b><span>releases</span></div><div class="m"><b>~5 ms</b><span>keystroke</span></div></div>
-        <div class="foot"><div class="stack">C# · .NET 10 · LSP · Sixel · llama.cpp · Inno Setup</div>
+        <div class="metrics"><div class="m"><b>~19k</b><span>lines of C#</span></div><div class="m"><b>~650</b><span>tests</span></div><div class="m"><b>33</b><span>releases</span></div><div class="m"><b>~5 ms</b><span>keystroke</span></div></div>
+        <div class="foot"><div class="stack">C# · .NET 10 · LSP · Sixel · llama.cpp · Inno Setup · deb/rpm</div>
           <div class="plinks"><a href="https://github.com/loglux/blueedit">GitHub</a></div></div>
       </article>
 
@@ -414,7 +414,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
           <li>Runs Hunspell in a Web Worker and fastText in WASM. Desktop, Android and iOS.</li>
           <li>Models and chunking were chosen by benchmark, and the benchmark results are published.</li>
         </ul>
-        <div class="metrics"><div class="m"><b>~9k</b><span>lines of TS</span></div><div class="m"><b>~430</b><span>tests</span></div><div class="m"><b>212</b><span>commits</span></div></div>
+        <div class="metrics"><div class="m"><b>~9k</b><span>lines of TS</span></div><div class="m"><b>~430</b><span>tests</span></div><div class="m"><b>214</b><span>commits</span></div></div>
         <div class="foot"><div class="stack">TypeScript · CodeMirror 6 · WASM · Vitest</div>
           <div class="plinks"><a href="https://github.com/loglux/obsidian-blueproof">GitHub</a></div></div>
       </article>
@@ -427,11 +427,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
           <div style="display:flex;flex-direction:column;gap:12px;min-width:0">
             <ul>
               <li>The files stay plain Markdown. They open in any other editor, and a file saved without changes comes back exactly as it was.</li>
-              <li>LaTeX formulas appear typeset as you type: the closing <code>$</code> turns <code>$x^2$</code> into a formula at once. A click opens it for editing, with the live result underneath.</li>
-              <li>It catches formula mistakes as you type and offers a fix: a misspelt <code>\farc</code>, a missing <code>}</code>, an unclosed <code>\begin</code>, <code>\lcm</code> that KaTeX has no command for. A fix is offered only if the formula then typesets.</li>
+              <li>LaTeX formulas are easy to enter: type <code>$</code> and write the formula in place, with the live result underneath. A click opens it again later. A price like <code>$5</code> stays text.</li>
+              <li>It catches formula mistakes as you type and offers a fix: a misspelt <code>\farc</code>, a missing <code>}</code>, an unclosed <code>\begin</code>, <code>\lcm</code> that KaTeX has no command for. A fix is offered only if the formula then typesets, and it can go to every formula in the note with the same problem.</li>
               <li>Exports to Word with real, editable Word equations. I wrote the converter myself after measuring Pandoc.</li>
             </ul>
-            <div class="metrics"><div class="m"><b>~10.5k</b><span>lines</span></div><div class="m"><b>~440</b><span>tests</span></div></div>
+            <div class="metrics"><div class="m"><b>~12k</b><span>lines</span></div><div class="m"><b>~450</b><span>tests</span></div></div>
             <div class="foot"><div class="stack">Tauri 2 · Rust · TypeScript · Tiptap · KaTeX · Playwright</div>
               <div class="plinks"><span class="onreq">Code walkthrough on request</span></div></div>
           </div>
@@ -447,7 +447,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
             <li>Auto Math expands snippets from user rule files that reload live. It includes a dependency-free LaTeX tokenizer and a LaTeX-to-Maxima translator.</li>
           </ul>
           <div style="display:flex;flex-direction:column;gap:12px">
-            <div class="metrics" style="margin-top:0;border-top:0;padding-top:0"><div class="m"><b>8,800+</b><span>Fix Math downloads</span></div><div class="m"><b>3,700+</b><span>Auto Math downloads</span></div><div class="m"><b>36★</b><span>stars</span></div></div>
+            <div class="metrics" style="margin-top:0;border-top:0;padding-top:0"><div class="m"><b>9,200+</b><span>Fix Math downloads</span></div><div class="m"><b>4,100+</b><span>Auto Math downloads</span></div><div class="m"><b>37★</b><span>stars</span></div></div>
             <div class="stack">TypeScript · Obsidian API</div>
             <div class="plinks"><a href="https://github.com/loglux/fix-math-for-obsidian">Fix Math</a><a href="https://github.com/loglux/auto-math-for-obsidian">Auto Math</a></div>
           </div>
@@ -483,7 +483,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
             <li>A stateful fake BIOS makes the logic testable without hardware. Regression tests compare its output byte for byte with the legacy batch-file system it replaced.</li>
           </ul>
           <div style="display:flex;flex-direction:column;gap:12px">
-            <div class="metrics" style="margin-top:0;border-top:0;padding-top:0"><div class="m"><b>491</b><span>commits</span></div><div class="m"><b>30</b><span>releases</span></div><div class="m"><b>~200</b><span>test checks</span></div></div>
+            <div class="metrics" style="margin-top:0;border-top:0;padding-top:0"><div class="m"><b>498</b><span>commits</span></div><div class="m"><b>34</b><span>releases</span></div><div class="m"><b>~200</b><span>test checks</span></div></div>
             <div class="stack">PowerShell · WinPE · WMI · HP BCU · Dell cctk</div>
             <div class="plinks"><span class="onreq">Code walkthrough on request</span></div>
           </div>
@@ -562,8 +562,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 <section class="area" id="platforms">
   <div class="wrap">
     <div class="area-head">
-      <div><div class="eyebrow">More platforms</div><h2>Telephony, research, audio and operations</h2></div>
-      <p>Systems that each needed knowledge of a domain beyond web development: Asterisk telephony, discourse analysis, audio processing, SSH and cryptography, observability.</p>
+      <div><div class="eyebrow">More platforms</div><h2>Telephony, research, audio, terminals and operations</h2></div>
+      <p>Systems that each needed knowledge of a domain beyond web development: Asterisk telephony, discourse analysis, audio processing, SSH and cryptography, file formats, observability.</p>
     </div>
     <div class="grid">
       <article id="digitalpbx" class="card wide" data-s="priv">
@@ -620,11 +620,31 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
             <ul>
               <li>ConPTY tabs that host the Windows Terminal control. Its own SFTP v3 client with many requests in flight.</li>
               <li>Converts PuTTY keys to OpenSSH with Argon2 and bcrypt-pbkdf implemented in the repo. Imports sessions from MobaXterm and PuTTY.</li>
+              <li>Sessions survive a lost connection: they are kept alive with tmux on the server, and the tab logs back in by itself.</li>
               <li>Passwords stay in Windows Credential Manager and reach OpenSSH through SSH_ASKPASS.</li>
             </ul>
-            <div class="metrics"><div class="m"><b>~18k</b><span>lines of C#</span></div><div class="m"><b>~150</b><span>tests</span></div></div>
+            <div class="metrics"><div class="m"><b>~20k</b><span>lines of C#</span></div><div class="m"><b>~170</b><span>tests</span></div></div>
             <div class="foot"><div class="stack">C# · .NET 10 · WPF · ConPTY · OpenSSH</div>
               <div class="plinks"><span class="onreq">Code walkthrough on request</span></div></div>
+          </div>
+        </div>
+      </article>
+
+      <article id="peekel" class="card wide" data-s="pub">
+        <div class="card-top"><div><h3>Peekel</h3><p class="what">A quick-view plugin for Far Manager: press Ctrl+Q and see what a file is, right in the terminal.</p></div>
+          <div class="chips"><span class="chip c-pub">Open source</span></div></div>
+        <div class="wide-body">
+          <button type="button" class="shot" data-full="img/peekel.webp" aria-label="Enlarge screenshot: Peekel showing a picture in the Far Manager quick view"><img src="img/peekel.webp" alt="Far Manager in the terminal: file panels on the left and a photo drawn by Peekel in the quick view panel on the right" loading="lazy"></button>
+          <div style="display:flex;flex-direction:column;gap:12px;min-width:0">
+            <ul>
+              <li>Shows pictures, RAW photos, SVG, PDF, DjVu books and the start of Word, PowerPoint and Excel files. It draws with Sixel inside the terminal's own cells, so there is no second window and it works over SSH.</li>
+              <li>Everything else gets a card: fonts in their own letters, programs with icon and version, ZIP contents, a photo's EXIF. It recognises a file by its content when the name says nothing, and warns when name and content disagree.</li>
+              <li>My own DjVu reader, written from the format's public specification. 800 pages from 40 files came out identical to the reference decoder, value by value.</li>
+              <li>A damaged file cannot take Far down: limits on size, time and depth, and safe Rust only in the readers. 27,010 deliberately spoilt DjVu pages gave no crash.</li>
+            </ul>
+            <div class="metrics"><div class="m"><b>~19k</b><span>lines of Rust</span></div><div class="m"><b>~220</b><span>tests</span></div><div class="m"><b>7</b><span>releases</span></div></div>
+            <div class="foot"><div class="stack">Rust · Sixel · Far Manager API · Windows Imaging Component</div>
+              <div class="plinks"><a href="https://github.com/loglux/peekel">GitHub</a></div></div>
           </div>
         </div>
       </article>
@@ -664,7 +684,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     <div class="area-head"><div><div class="eyebrow">Toolbox</div><h2>Stack</h2></div><p>Grouped by how much production code I have in each, most first.</p></div>
     <div class="tbl">
       <table class="skills">
-        <tr><th>Languages</th><td>Python · TypeScript · C# / .NET · PowerShell · Kotlin · SQL · some Rust</td></tr>
+        <tr><th>Languages</th><td>Python · TypeScript · C# / .NET · PowerShell · Rust · Kotlin · SQL</td></tr>
         <tr><th>Backend</th><td>FastAPI · Django / DRF · Starlette · Next.js · SQLAlchemy · Alembic · Celery · Redis</td></tr>
         <tr><th>Data &amp; search</th><td>PostgreSQL · PostGIS · SQLite · Qdrant · OpenSearch / BM25</td></tr>
         <tr><th>AI</th><td>MCP servers and gateways · RAG · OpenAI · Anthropic · Gemini · DeepSeek · Ollama · llama.cpp · Whisper · Azure AI (AI-102)</td></tr>
