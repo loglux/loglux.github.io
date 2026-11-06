@@ -230,7 +230,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     <div class="stats" role="list">
       <div class="stat" role="listitem"><div class="n">6,300+</div><div class="l">contributions in the last 12 months</div></div>
       <div class="stat" role="listitem"><div class="n">13,500+</div><div class="l">Obsidian plugin downloads</div></div>
-      <div class="stat" role="listitem"><div class="n">~410k</div><div class="l">lines of non-test code in the main projects</div></div>
+      <div class="stat" role="listitem"><div class="n">~420k</div><div class="l">lines of non-test code in the main projects</div></div>
       <div class="stat" role="listitem"><div class="n">3,900+</div><div class="l">automated tests across them</div></div>
       <div class="stat" role="listitem"><div class="n">2</div><div class="l">Android apps on Google Play</div></div>
       <div class="stat" role="listitem"><div class="n">1</div><div class="l">merged upstream fix in an Obsidian plugin</div></div>
@@ -631,7 +631,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       </article>
 
       <article id="peekel" class="card wide" data-s="pub">
-        <div class="card-top"><div><h3>Peekel</h3><p class="what">A quick-view plugin for Far Manager: press Ctrl+Q and see what a file is, right in the terminal.</p></div>
+        <div class="card-top"><div><h3>Peekel</h3><p class="what">See what a file is, right in the terminal: a quick-view plugin for Far Manager (Ctrl+Q) and a viewer of its own that also reads PDF and DjVu books.</p></div>
           <div class="chips"><span class="chip c-pub">Open source</span></div></div>
         <div class="wide-body">
           <button type="button" class="shot" data-full="img/peekel.webp" aria-label="Enlarge screenshot: Peekel showing a picture in the Far Manager quick view"><img src="img/peekel.webp" alt="Far Manager in the terminal: file panels on the left and a photo drawn by Peekel in the quick view panel on the right" loading="lazy"></button>
@@ -639,12 +639,13 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
             <ul>
               <li>Shows pictures, RAW photos, SVG, PDF, DjVu books and the start of Word, PowerPoint and Excel files. It draws with Sixel inside the terminal's own cells, so there is no second window and it works over SSH.</li>
               <li>Everything else gets a card: fonts in their own letters, programs with icon and version, ZIP contents, a photo's EXIF. It recognises a file by its content when the name says nothing, and warns when name and content disagree.</li>
+              <li>The viewer runs on Windows and Linux and over SSH, and can be the F3 viewer of Far or Midnight Commander. Books open where you left them, two or three pages side by side, with the contents and a search in the text.</li>
               <li>My own DjVu reader, written from the format's public specification. 800 pages from 40 files came out identical to the reference decoder, value by value.</li>
               <li>A damaged file cannot take Far down: limits on size, time and depth, and safe Rust only in the readers. 27,010 deliberately spoilt DjVu pages gave no crash.</li>
             </ul>
-            <div class="metrics"><div class="m"><b>~19k</b><span>lines of Rust</span></div><div class="m"><b>~220</b><span>tests</span></div><div class="m"><b>7</b><span>releases</span></div></div>
-            <div class="foot"><div class="stack">Rust · Sixel · Far Manager API · Windows Imaging Component</div>
-              <div class="plinks"><a href="https://github.com/loglux/peekel">GitHub</a></div></div>
+            <div class="metrics"><div class="m"><b>~33k</b><span>lines of Rust</span></div><div class="m"><b>~580</b><span>tests</span></div><div class="m"><b>12</b><span>releases</span></div></div>
+            <div class="foot"><div class="stack">Rust · Sixel · Far Manager API · Windows Imaging Component · Windows & Linux</div>
+              <div class="plinks"><a href="https://github.com/loglux/peekel">Far plugin</a><a href="https://github.com/loglux/peekel-viewer">Viewer</a></div></div>
           </div>
         </div>
       </article>
