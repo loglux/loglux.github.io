@@ -228,10 +228,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     </div>
 
     <div class="stats" role="list">
-      <div class="stat" role="listitem"><div class="n">6,500+</div><div class="l">contributions in the last 12 months</div></div>
-      <div class="stat" role="listitem"><div class="n">13,800+</div><div class="l">Obsidian plugin downloads</div></div>
-      <div class="stat" role="listitem"><div class="n">~420k</div><div class="l">lines of non-test code in the main projects</div></div>
-      <div class="stat" role="listitem"><div class="n">3,900+</div><div class="l">automated tests across them</div></div>
+      <div class="stat" role="listitem"><div class="n">6,800+</div><div class="l">contributions in the last 12 months</div></div>
+      <div class="stat" role="listitem"><div class="n">14,200+</div><div class="l">Obsidian plugin downloads</div></div>
+      <div class="stat" role="listitem"><div class="n">~450k</div><div class="l">lines of non-test code in the main projects</div></div>
+      <div class="stat" role="listitem"><div class="n">4,300+</div><div class="l">automated tests across them</div></div>
       <div class="stat" role="listitem"><div class="n">2</div><div class="l">Android apps on Google Play</div></div>
       <div class="stat" role="listitem"><div class="n">1</div><div class="l">merged upstream fix in an Obsidian plugin</div></div>
     </div>
@@ -430,8 +430,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
               <li>LaTeX formulas are easy to enter: type <code>$</code> and write the formula in place, with the live result underneath. A click opens it again later. A price like <code>$5</code> stays text.</li>
               <li>It catches formula mistakes as you type and offers a fix: a misspelt <code>\farc</code>, a missing <code>}</code>, an unclosed <code>\begin</code>, <code>\lcm</code> that KaTeX has no command for. A fix is offered only if the formula then typesets, and it can go to every formula in the note with the same problem.</li>
               <li>Exports to Word with real, editable Word equations. I wrote the converter myself after measuring Pandoc.</li>
+              <li>Spelling with Windows' own checker or Hunspell dictionaries in 39 languages, and grammar from a language model, shared with BlueProof. Document styles on a Design tab, as Word's style sets.</li>
             </ul>
-            <div class="metrics"><div class="m"><b>~12k</b><span>lines</span></div><div class="m"><b>~450</b><span>tests</span></div></div>
+            <div class="metrics"><div class="m"><b>~25k</b><span>lines</span></div><div class="m"><b>~900</b><span>tests</span></div><div class="m"><b>3</b><span>preview releases</span></div></div>
             <div class="foot"><div class="stack">Tauri 2 · Rust · TypeScript · Tiptap · KaTeX · Playwright</div>
               <div class="plinks"><span class="onreq">Code walkthrough on request</span></div></div>
           </div>
@@ -447,7 +448,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
             <li>Auto Math expands snippets from user rule files that reload live. It includes a dependency-free LaTeX tokenizer and a LaTeX-to-Maxima translator.</li>
           </ul>
           <div style="display:flex;flex-direction:column;gap:12px">
-            <div class="metrics" style="margin-top:0;border-top:0;padding-top:0"><div class="m"><b>9,400+</b><span>Fix Math downloads</span></div><div class="m"><b>4,100+</b><span>Auto Math downloads</span></div><div class="m"><b>38★</b><span>stars</span></div></div>
+            <div class="metrics" style="margin-top:0;border-top:0;padding-top:0"><div class="m"><b>9,700+</b><span>Fix Math downloads</span></div><div class="m"><b>4,200+</b><span>Auto Math downloads</span></div><div class="m"><b>39★</b><span>stars</span></div></div>
             <div class="stack">TypeScript · Obsidian API</div>
             <div class="plinks"><a href="https://github.com/loglux/fix-math-for-obsidian">Fix Math</a><a href="https://github.com/loglux/auto-math-for-obsidian">Auto Math</a></div>
           </div>
@@ -554,6 +555,24 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
           <button type="button" class="shot" data-full="img/ipxe.webp" aria-label="Enlarge screenshot: iPXE Station menu builder"><img src="img/ipxe.webp" alt="iPXE Station menu builder with boot entries and the entry editor" loading="lazy"></button>
         </div>
       </article>
+
+      <article id="rtlpassthru" class="card wide" data-s="pub">
+        <div class="card-top"><div><h3>RtlPassthru</h3><p class="what">Makes a dock or USB network adapter take the laptop's MAC address, so a docked laptop is the same machine to the network.</p></div>
+          <div class="chips"><span class="chip c-pub">Open source</span></div></div>
+        <div class="wide-body">
+          <button type="button" class="shot" data-full="img/rtlpassthru.webp" aria-label="Enlarge screenshot: RtlPassthru showing that pass-through works on Windows, pre-boot and Linux"><img src="img/rtlpassthru.webp" alt="RtlPassthru window: a Realtek 2.5G adapter with three green tiles, Windows, Pre-boot / PXE and Linux, all marked WORKS" loading="lazy"></button>
+          <div style="display:flex;flex-direction:column;gap:12px;min-width:0">
+            <ul>
+              <li>Network access, DHCP reservations and PXE boot are tied to the laptop's own MAC. Some docks and dongles with a Realtek chip, even a premium Thunderbolt 4 dock, ship with MAC pass-through switched off.</li>
+              <li>Reads the chip and says separately for Windows, pre-boot/PXE and Linux whether pass-through will work, and why. The conditions come from the Windows driver and the Linux driver's source.</li>
+              <li>Fixes it on RTL8156 chips by writing one setting into the chip's one-time memory: a preview first, then the write, then a read-back to check. Tested on a dock and a dongle on Windows, Dell pre-boot and Ubuntu.</li>
+            </ul>
+            <div class="metrics"><div class="m"><b>2</b><span>releases</span></div><div class="m"><b>~25</b><span>tests</span></div></div>
+            <div class="foot"><div class="stack">Python · PowerShell · Realtek diagnostic library · efuse</div>
+              <div class="plinks"><a href="https://github.com/loglux/realtek-mac-passthrough">GitHub</a></div></div>
+          </div>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -631,7 +650,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       </article>
 
       <article id="peekel" class="card wide" data-s="pub">
-        <div class="card-top"><div><h3>Peekel</h3><p class="what">See what a file is, right in the terminal: a quick-view plugin for Far Manager (Ctrl+Q) and a viewer of its own that also reads PDF and DjVu books.</p></div>
+        <div class="card-top"><div><h3>Peekel</h3><p class="what">See what a file is, right in the terminal: a quick-view plugin for Far Manager (Ctrl+Q) and a viewer of its own that also reads books.</p></div>
           <div class="chips"><span class="chip c-pub">Open source</span></div></div>
         <div class="wide-body">
           <button type="button" class="shot" data-full="img/peekel.webp" aria-label="Enlarge screenshot: Peekel showing a picture in the Far Manager quick view"><img src="img/peekel.webp" alt="Far Manager in the terminal: file panels on the left and a photo drawn by Peekel in the quick view panel on the right" loading="lazy"></button>
@@ -639,11 +658,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
             <ul>
               <li>Shows pictures, RAW photos, SVG, PDF, DjVu books and the start of Word, PowerPoint and Excel files. It draws with Sixel inside the terminal's own cells, so there is no second window and it works over SSH.</li>
               <li>Everything else gets a card: fonts in their own letters, programs with icon and version, ZIP contents, a photo's EXIF. It recognises a file by its content when the name says nothing, and warns when name and content disagree.</li>
-              <li>The viewer runs on Windows and Linux and over SSH, and can be the F3 viewer of Far or Midnight Commander. Books open where you left them, two or three pages side by side, with the contents and a search in the text.</li>
+              <li>The viewer runs on Windows and Linux and over SSH, and can be the F3 viewer of Far or Midnight Commander. It reads PDF, DjVu, EPUB and FB2 books, laying out EPUB and FB2 into pages itself; books open where you left them, two or three pages side by side, with the contents and a search in the text.</li>
               <li>My own DjVu reader, written from the format's public specification. 800 pages from 40 files came out identical to the reference decoder, value by value.</li>
               <li>A damaged file cannot take Far down: limits on size, time and depth, and safe Rust only in the readers. 27,010 deliberately spoilt DjVu pages gave no crash.</li>
             </ul>
-            <div class="metrics"><div class="m"><b>~33k</b><span>lines of Rust</span></div><div class="m"><b>~580</b><span>tests</span></div><div class="m"><b>12</b><span>releases</span></div></div>
+            <div class="metrics"><div class="m"><b>~43k</b><span>lines of Rust</span></div><div class="m"><b>~590</b><span>tests</span></div><div class="m"><b>21</b><span>releases</span></div></div>
             <div class="foot"><div class="stack">Rust · Sixel · Far Manager API · Windows Imaging Component · Windows & Linux</div>
               <div class="plinks"><a href="https://github.com/loglux/peekel">Far plugin</a><a href="https://github.com/loglux/peekel-viewer">Viewer</a></div></div>
           </div>
